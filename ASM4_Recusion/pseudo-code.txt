@@ -16,17 +16,15 @@ Algorithm sumHelper(L,p)
 (b) Write a second recursive algorithm that uses the rank-based operations to
 traverse the list to calculate the sum. Analyze your algorithm line by line.
 
-Algorithm sum(L) 
+Algorithm sumWithRank(L) 
 
     if L.isEmpty() then return null
-    p = L.first();
-    return sumHelper(L, p);
+    rank = 0
+    return sumHelper(L, rank);
 
-Algorithm sumHelper(L,p)//rank = L.rankOf(p)
-    if L.isLast(p) then
-        rank = L.rankOf(p)
-        return sum = L.elementAtRank(rank);
-    return L.elementAtRank(rank) + sumHelper(L, L.after(p))
+Algorithm sumWithRankHelper(L,p)//rank = L.rankOf(p)
+    if(L.isLast(L.atRank(rank))) then return sum = L.elemAtRank(rank);
+    return L.elemAtRank(rank) + sumWithRankHelper(L, ++ rank );
 
 (c) Choose the better algorithm, either (a) or (b), then implement that algorithm in
 JavaScript using the List.js file provided in a previous assignment.
