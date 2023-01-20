@@ -1,0 +1,38 @@
+Assignment 4
+A. (a) Write a recursive method, sum(L), in pseudo-code to calculate the sum of the
+integers in the list L of integers. First use positions to traverse the list. See the
+hint in the lecture notes. Analyze line by line your algorithm.
+
+Algorithm sum(L) 
+
+    if L.isEmpty() then return null
+    p = L.first();
+    return sumHelper(L, p);
+
+Algorithm sumHelper(L,p)
+    if L.isLast(p) return sum = p.element()
+    return p.element() + sumHelper(L, L.after(p))
+
+(b) Write a second recursive algorithm that uses the rank-based operations to
+traverse the list to calculate the sum. Analyze your algorithm line by line.
+
+Algorithm sum(L) 
+
+    if L.isEmpty() then return null
+    p = L.first();
+    return sumHelper(L, p);
+
+Algorithm sumHelper(L,p)//rank = L.rankOf(p)
+    if L.isLast(p) then
+        rank = L.rankOf(p)
+        return sum = L.elementAtRank(rank);
+    return L.elementAtRank(rank) + sumHelper(L, L.after(p))
+
+(c) Choose the better algorithm, either (a) or (b), then implement that algorithm in
+JavaScript using the List.js file provided in a previous assignment.
+B. Design a pseudo-code recursive method, findMax(L), that returns the maximum
+number in the list L. Implement in JavaScript using the List.js file provided
+previously.
+C-2-4 Describe a pseudo-code recursive algorithm, setOfSubsets(n), that enumerates all
+of the subsets of the set of numbers {1,2,…,n}. What is the running time of your
+method?
