@@ -50,3 +50,25 @@ Algorithm findMaxHelper(L)
 C-2-4 Describe a pseudo-code recursive algorithm, setOfSubsets(n), that enumerates all
 of the subsets of the set of numbers {1,2,…,n}. What is the running time of your
 method?
+
+
+Algorithm setOfSubsets(n)
+    binArr = new Array(n);
+    gen(0,n);
+
+Algorithm gen(k,n) 
+    if (k == n) then 
+        //get elements with position '1' using binArr
+        //output to console
+        subSet = [];
+        for(var j=0;j<binArr.length;j++) do
+                if (binArr[j] == 1)
+                    subSet.push(j+1);
+            
+        console.log(subSet);
+        
+    else // //generate the position 1
+        binArr[k] = 0;
+        gen(k+1, n);
+        binArr[k] = 1;
+        gen(k+1, n);        
