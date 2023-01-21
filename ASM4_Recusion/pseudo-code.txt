@@ -5,32 +5,48 @@ hint in the lecture notes. Analyze line by line your algorithm.
 
 Algorithm sum(L) 
 
-    if L.isEmpty() then return null
-    p = L.first();
-    return sumHelper(L, p);
+    if L.isEmpty() then return null -> O(1)
+    p := L.first(); -> O(1)
+    return sumHelper(L, p); -> O(1)
 
 Algorithm sumHelper(L,p)
-    if L.isLast(p) return sum = p.element()
-    return p.element() + sumHelper(L, L.after(p))
+    if L.isLast(p) return sum := p.element() -> O(n)
+    return p.element() + sumHelper(L, L.after(p)) -> O(n)
 
 (b) Write a second recursive algorithm that uses the rank-based operations to
 traverse the list to calculate the sum. Analyze your algorithm line by line.
 
 Algorithm sumWithRank(L) 
+    if L.isEmpty() then return null -> O(1)
+    rank := 0 -> O(1)
+    return sumHelper(L, rank); -> O(1)
 
-    if L.isEmpty() then return null
-    rank = 0
-    return sumHelper(L, rank);
-
-Algorithm sumWithRankHelper(L,p)//rank = L.rankOf(p)
-    if(L.isLast(L.atRank(rank))) then return sum = L.elemAtRank(rank);
-    return L.elemAtRank(rank) + sumWithRankHelper(L, ++ rank );
+Algorithm sumWithRankHelper(L,p)
+    if(L.isLast(L.atRank(rank))) then return sum = L.elemAtRank(rank); -> O(n)
+    return L.elemAtRank(rank) + sumWithRankHelper(L, ++ rank ); -> O(n)
 
 (c) Choose the better algorithm, either (a) or (b), then implement that algorithm in
 JavaScript using the List.js file provided in a previous assignment.
+
+
 B. Design a pseudo-code recursive method, findMax(L), that returns the maximum
 number in the list L. Implement in JavaScript using the List.js file provided
 previously.
+
+ Algorithm findMax(L)
+    if L.isEmpty() then retun null
+    return findMaxHelper(L)
+
+Algorithm findMaxHelper(L)
+    p1:= L.first();
+    max:= p1.element();
+    if L.isLast(p1) return max
+    p2 := L.after(p1);
+    if ( max <= p2.element() ) then L.remove(p1)
+    if max > p2.element() then L.remove(p2)
+    return findMaxHelper(L)
+    
+
 C-2-4 Describe a pseudo-code recursive algorithm, setOfSubsets(n), that enumerates all
 of the subsets of the set of numbers {1,2,…,n}. What is the running time of your
 method?

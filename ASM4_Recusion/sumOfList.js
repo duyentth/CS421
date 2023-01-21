@@ -21,6 +21,22 @@ function sumWithRankHelper(L, rank) {
     if(L.isLast(L.atRank(rank))) return sum = L.elemAtRank(rank);
     return L.elemAtRank(rank) + sumWithRankHelper(L, ++ rank );
 }
+
+function findMax(L) {
+    if (L.isEmpty() ) return null;
+    return findMaxHelper(L);
+}
+
+function findMaxHelper(L) {
+    let p1 = L.first();
+    let max = p1.element();
+    if ( L.isLast(p1) ) return max;
+    let p2 = L.after(p1);
+    if ( max <= p2.element() ) L.remove(p1);
+    if ( max > p2.element() ) L.remove(p2);
+    return findMaxHelper(L);
+}
+
 //L = 2, 4, 1, 5, 6
 let myList = new listMD.List();
 myList.insertFirst(2);
@@ -31,3 +47,4 @@ myList.insertBefore(myList.insertBefore(myList.last(), 5), 1);
 console.log("my list is ", myList.toString());
 console.log("sum of list is ", sum(myList));
 console.log("sum of list with rank is ", sumWithRank(myList));
+console.log("max of list is ", findMax(myList) );
