@@ -1,0 +1,20 @@
+Assignment 5
+Level 1:
+1. (a) Define, in pseudo-code, an algorithm to calculate the height of a tree. Hint: it needs to
+be recursive.
+
+Algorithm height(T)
+    return heightHelper(T, T.root())
+Algorithm heightHelper(T, p)
+    if T.isExternal(p) then
+    return 0
+    lheight := heightHelper(T, T.leftChild(p))
+    rheight := heightHelper(T, T.rightChild(p))
+    return MAX(lheight, rheight) + 1
+
+
+(b) Using the HW05-Tree.js, implement your algorithm in a JavaScript function Height(T).
+
+
+(c) Implement your algorithm using the EulerTour template class provided in HW05-
+Tree.js, i.e., create a subclass of EulerTour with a method that calculates the height.
