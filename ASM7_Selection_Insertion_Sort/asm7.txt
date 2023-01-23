@@ -1,0 +1,49 @@
+Assignment 7
+R-2.8 Illustrate the performance of the selection-sort algorithm on the following input sequence
+(22, 15, 26, 44, 10, 3, 9, 13, 29, 25).
+
+n = 10; i <= n-2= 8
+i = 0 -> (3, 15, 26, 44, 10, 22, 9, 13, 29, 25)
+i = 1 -> (3, 9, 26, 44, 10, 22, 15, 13, 29, 25)
+i = 2 -> (3, 9, 10, 44, 26, 22, 15, 13, 29, 25)
+i = 3 -> (3, 9, 10, 13, 26, 22, 15, 44, 29, 25)
+i = 4 -> (3, 9, 10, 13, 15, 22, 26, 44, 29, 25)
+i = 5 -> (3, 9, 10, 13, 15, 22, 26, 44, 29, 25)
+i = 6 -> (3, 9, 10, 13, 15, 22, 25, 44, 29, 26)
+i = 7 -> (3, 9, 10, 13, 15, 22, 25, 26, 29, 44)
+i = 8 -> (3, 9, 10, 13, 15, 22, 25, 26, 29, 44)
+
+
+R-2.9 Illustrate the performance of the insertion-sort algorithm on the input sequence of the
+previous problem.
+(22, 15, 26, 44, 10, 3, 9, 13, 29, 25) -> n = 10, i <= n -1 = 9
+
+i = 1 -> insertElement = 22 -> (15, 22, 26, 44, 10, 3, 9, 13, 29, 25)
+i = 2 -> insertElement = 26 -> (15, 22, 26, 44, 10, 3, 9, 13, 29, 25)
+i = 3 -> insertElement = 44 -> (15, 22, 26, 44, 10, 3, 9, 13, 29, 25)
+i = 4 -> insertElement = 10 -> (10, 15, 22, 26, 44, 3, 9, 13, 29, 25)
+i = 5 -> insertElement = 3 -> (3, 10, 15, 22, 26, 44, 9, 13, 29, 25)
+i = 6 -> insertElement = 9 -> (3, 9, 10, 15, 22, 26, 44, 13, 29, 25)
+i = 7 -> insertElement = 13 -> (3, 9, 10, 13, 15, 22, 26, 44, 29, 25)
+i = 8 -> insertElement = 29 -> (3, 9, 10, 13, 15, 22, 26, 29, 44, 25)
+i = 9 -> insertElement = 25 -> (3, 9, 10, 13, 15, 22, 25, 26, 29, 44)
+
+R-2.10 Give an example of a worst-case sequence with n elements for insertion-sort that runs in
+Ω(n2) time on such a sequence.
+
+The worst-case is the sequence is totally sorted in descending order. 
+
+1. Using the pseudo-code in today’s notes implement insertionSort, ShellSort, and heapSort
+in JavaScript. Insert a counter in each of the algorithms to count the number of key
+comparisons and swaps for heapSort. Similarly, insert a counter for the number of key
+comparisons and shifts in insertionSort and ShellSort. Run several tests of small,
+medium, and large arrays to compare the algorithms; use the ArraySort.js file that imports
+your HW07-ArraySorter.js file and runs tests on your sort algorithms. What is your
+conclusion about running times?
+
+
+
+Level 2:
+2. Use one of these sorts from 1 above to implement in JavaScript another version of
+isPermutation(A,B). First start with the pseudo-code, then translate into JavaScript.
+Submit both the pseudo-code and the JavaScript program file with test cases. 
