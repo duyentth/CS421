@@ -30,7 +30,7 @@ R-2-18 Draw an example of a heap whose keys are all the odd numbers from 1 to 49
 duplicates), such that the insertion of an item with key 32 would cause up-heap bubbling to
 proceed all the way up to a child of the root (replacing that child key of the root with 32).
 
-(Image attached)
+(attached image named "drawHeap.jpeg")
 
 Level 2:
 1. This is a refinement of question 1 above but it takes advantage of the fact that T is
