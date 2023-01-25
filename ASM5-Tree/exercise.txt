@@ -1,0 +1,47 @@
+// Exercise 1
+//method to calculate the sum of the integer in a binary tree of integers
+
+
+
+Algorithm sum(T) 
+    if ( T.isEmpty() ) then  return null
+    root := T.root()
+    sum := root.element()
+    if(leftChildren(root) != null) sumLeft := sumHelper(T, leftChild(root) )
+    if(leftChildren(root) == null) then sumLeft := 0
+    if(rightChildren(root) != null)sumRight := sumHelper(T, rightChild(root) )
+    if(rightChildren(root) == null)sumRight := 0
+    return sum += sumLeft + sumRight;
+
+Algorithm sumHelper(T, p) 
+    if(children(p) == null) then return p.element()
+    if leftChild(p) != null then sumLeft := sumHelper(T, leftChild(p) )  
+    if leftChild(p) == null then sumLeft := 0
+    if leftRight(p) != null then sumRight := sumHelper(T, rightChild(p) )
+    if leftRight(p) == null then sumRight := 0
+    return sum = sumLeft + sumRight;
+
+
+//assume that an integer is stored at each internal node and nothing in external nodes
+Algorithm sum(T)
+    return sumHelper(T, T.root())
+
+Algorithm sumHelper(T, p)
+    if T.isExternal(p) then return 0
+    lsum := sumHelper(T, T.leftChild(p))
+    rsum := sumHelper(T, T.rightChild(p))
+    return lsum + rsum + p.element()
+
+
+//Exercise 2
+//Define, in pseudo-code, an algorithm to calculate the height of a tree. Hint: it needs to
+//be recursive.
+
+Algorithm height(T)
+    return heightHelper(T, T.root())
+Algorithm heightHelper(T, p)
+    if T.isExternal(p) then
+    return 0
+    lheight := heightHelper(T, T.leftChild(p))
+    rheight := heightHelper(T, T.rightChild(p))
+    return MAX(lheight, rheight) + 1

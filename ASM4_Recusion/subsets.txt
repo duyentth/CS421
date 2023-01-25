@@ -1,0 +1,68 @@
+C-2-4 Describe a pseudo-code recursive algorithm, setOfSubsets(n), that enumerates all
+of the subsets of the set of numbers {1,2,…,n}. What is the running time of your
+method?
+
+//giai thich
+    n - 2^n
+    {1,2,3} => 2*2*2 = 8 {}{1}{2}{3}{12}{13}{23}{123}   //n=3
+    [0,0,0]  [0,0,1] [0,1,0] [0,1,1] [1,0,0] [1,0,1] [1,1,0] [1,1,1]
+    0 -> 2^3-1 0 -> 7
+
+    111 => 1x2^2 + 1x2^1 + 1x2^0 => 7
+    001 => 0x2^2 + 0x2^1 + 1x2^2 => 1
+//
+
+4 -> 16 subset
+0
+
+setOfSubsets(n){
+
+    for(var i=0; i<=2^n-1;i++){
+        var binArr = getBinArray(i,n);  //2 => [0,1,0]     0 => [0,0,0]
+        var subSet = [];
+        for(var j=0;j<binArray.length;j++){
+            if (binArray[j] == 1)
+                subSet.push(j+1);
+        }
+        console.log(subSet);
+    }
+
+}
+
+//n=3
+for(var i=0; i<=7;i++){
+    var binArr = getBinArray(i,3);  //2 => [0,1,0]     0 => [0,0,0]  [0,0,1] [0,1,1]
+    var subSet = [];
+    for(var j=0;j<binArray.length;j++){
+        if (binArray[j] == 1)
+            subSet.push(j+1);
+    }
+    console.log(subSet);
+}
+
+
+//binArr[n]   
+//setOfSubsets(0);
+setOfSubsets(k) {
+    if (k == n){
+        - get elements with position '1' using binArr
+        - output to console
+    }
+    else {
+        //generate the position 1
+        binArr[k] = 0;
+        setOfSubsets(k+1);
+        binArr[k] = 1;
+        setOfSubsets(k+1);
+    }
+}
+
+//          [0,0,0]    [0,0,1]  [0,1,0]
+
+
+
+// []
+// [3]
+// [2]
+// ...
+// [2,3]

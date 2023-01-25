@@ -32,6 +32,8 @@ R-2.10 Give an example of a worst-case sequence with n elements for insertion-so
 Ω(n2) time on such a sequence.
 
 The worst-case is the sequence is totally sorted in descending order. 
+For (n-1) elements before we insert to new position, we have to compare and shift other elements to right (n -1) times.
+
 
 1. Using the pseudo-code in today’s notes implement insertionSort, ShellSort, and heapSort
 in JavaScript. Insert a counter in each of the algorithms to count the number of key
