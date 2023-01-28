@@ -1,0 +1,65 @@
+Assignment 8
+A. Which, if any, of the following algorithms, bubble-sort, heap-sort, insertion sort,
+merge-sort, and quick-sort, are stable? Briefly justify your answer.
+
+An algorithm  is stable as if it maintains the relative order of records in the case of equality of sort keys.
+Bubble-sort, insertion-sort and merge-sort are stable, but quick-sort and heap-sort are not because they don't insure that the relative order of 
+records/elements in the first step of sorting are the same with orders in other steps of sorting in the case of equality of sort keys.
+For example 
+input: array A= [(a,10) , (b, 20), (c, 20), (d, 30), (f, 10), (g, 15)] is sorted by keys(a,b,c..)
+sorting array A by values with Insertion sort
+step 1: A = [(a,10),  (b, 20), (c, 20),  (d, 30) (f, 10) (g, 15)]
+step 2: A = [(a, 10) (b, 20) (c, 20) (d, 30) (f, 10)  15]
+step 3: A = [(a, 10) (b, 20) (c, 20) (d, 30) (f, 10) (g, 15)]
+step 4: A = [(a, 10) (f, 10) (b, 20) (c, 20) (d, 30) (g, 15)]
+step 5 : A = [(a, 10) (f, 10) (g, 15) (b, 20) (c, 20) (d, 30) ]
+We can see the relative order from the very beginning [(b,20) , (c,20)] is not changed through the ending
+
+B. Is the bucket-sort algorithm in-place? Why or why not?
+
+No, it isn't. Because bucket-sort is divide the input array/list into many buckets and then move back to the end of the array/list.
+
+C. Illustrate the performance of the radix-sort algorithm on the following input sequence
+(22, 15, 26, 44, 10, 3, 9, 13, 29, 25).
+we have ten buckets b0, b1, ..., b9, for each digit we do the step 1 and step 2
+step 1: put every elements in the list/array into respective buckets
+b0: 10
+b1: 
+b2: 22
+b3: 3
+b4: 44
+b5: 15, 25
+b6: 26
+b7: 
+b8: 
+b9: 9, 29
+
+Step 2: put all the elements from 10 buckets back into the list/array
+(10, 22, 3, 44, 15, 25, 26, 9, 29)
+
+Repeat step 1 and step 2 for all remaining digits
+
+(3, 9, 10, 15, 22, 25, 26, 29)
+
+
+
+D. Note that the Priority Queue ADT is implemented in JavaScript using the Heap
+ADT provided in the attached PriorityQueue.js and Heap.js. Note that the Heap
+stores keys (only elements), but the PQ stores items, i.e., (key, element)
+items/pairs so Item.js is also needed. Your task is to implement in JavaScript
+PQ-Sort based on the Priority Queue provided. Test it as before using the
+ArraySort-tests.js file, but note that it uses the HW07-ArraySorter.js from the
+previous assignment. You will also need to include the following statement at the
+top of your HW07-ArraySorter.js file:
+const PQ = require('./PriorityQueue.js');
+The ArraySort-tests.js file expects an implementation of your PQSort(arr)
+function so it can be called (see the provided file).
+
+E. What can you conclude about the different sort algorithms?
+
+C-4.13 Suppose we are given two sequences A and B of n elements, possibly containing
+duplicates, on which a total order relation is defined (i.e., has a comparator). Using a
+Priority Queue design an efficient pseudo-code algorithm for determining if A and B
+contain the same set of elements (possibly in different orders and possibly containing
+duplicates). What is the running time of this method?
+Implement your solution to C-4.13 in JavaScript and create some tests.
