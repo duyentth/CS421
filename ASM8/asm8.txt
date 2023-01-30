@@ -62,4 +62,6 @@ duplicates, on which a total order relation is defined (i.e., has a comparator).
 Priority Queue design an efficient pseudo-code algorithm for determining if A and B
 contain the same set of elements (possibly in different orders and possibly containing
 duplicates). What is the running time of this method?
+
+
 Implement your solution to C-4.13 in JavaScript and create some tests.
