@@ -35,6 +35,29 @@ who is running or even how many candidates there are, design an efficient algori
 see who wins the election S represents, assuming the candidate with the most votes
 wins.
 
+Sequence S = [1, 2, 2, 5, 20, 10, 2, 5, 20, 30, 14, 10]
+Dictionary D = [[1, 1], [2, 3], [5, 2], [ 20, 2], [10, 2], [30, 1], [14. 1]]
+
+Algorithm findWinner(S)
+ input S is a sequence of integer number representing the ID of chosen candidates
+ output max value of element from a Dictionary D representing as a winner from Sequence of candidates 
+
+D: new a Dictionary
+for i = 0 to S.size() - 1 do
+    v := D.findValue(S[i])
+    if !v then D.insertItem(S[i], 1)//add new pair of (key, value)
+    else D[S[i]] ++ //increat value of key S[i]
+valuesArr := D.values()
+keysArr := D.keys()
+//find the max value and maxIndex from Dictionary
+maxValue := 0, maxIndex = 0
+for i:= 1 to valuesArr.length - 1 do
+    if maxValue < valuesArr[i] then 
+        maxValue = valuesArr[i]
+        maxIndex = i;
+return D[keysArr[maxIndex]]
+
+
 
 Let L be a List of objects colored either red, green, or blue. Design an in-place
 algorithm sortRBG(L) that places all red objects in list L before the blue colored objects,
