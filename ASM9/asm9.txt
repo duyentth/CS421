@@ -97,11 +97,18 @@ solution to problem C 4.10 to find the winner of an election.
 Level 2.
 C. Implement your pseudo code solution to question R 4.5.
 D. Modify your algorithm to B above to handle a tie, i.e., more than one winner.
+
 Lesson 10.
 R-4.9 Suppose we modify the deterministic version of the quick-sort algorithm so that,
 instead of selecting the last element in an n-element sequence as the pivot, we choose
 the element at rank (index) n/2, that is, an element in the middle of the sequence.
 What is the running time of this version of quick-sort on a sequence that is already
 sorted?
+
+The worst-case for quick-sort algorithm when the pivot is a maximum or minum element of the list/squence.
+The running time is O(n^2). However, if the pivot is a median element of the list/sequence,
+the List will be divided into 3 parts(E = pivot , L, G) and  both L and G have the size 
+nearly n/2 => the quick-sort tree is O(logn) => Total running time of Quick-sort algorithm is O(nlogn).
+
 Take the Quick Sort algorithm provided and add it to the sort algorithms and test it like
 the others. How does Quick Sort compare to the other sorting algorithms?
