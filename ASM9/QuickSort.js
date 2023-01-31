@@ -1,12 +1,12 @@
 // include this code inside of your HW07-ArraySorter.js file
 
-    quickSort(arr) {
+    function quickSort(arr) {
         this._compCount = 0;
         this._swapCount = 0;
         this._shiftCount = 0;
         this._quickSort(arr, 0, arr.length-1);
     }
-    _quickSort(arr, lo, hi) {
+    function quickSort(arr, lo, hi) {
         if (lo < hi) {
             let pivots = this._inPlacePartition(arr, lo, hi);
             //  console.log(pivots);  
@@ -15,7 +15,7 @@
             this._quickSort(arr, pivots[1]+1, hi);
         }
     }
-    _inPlacePartition(arr, lo, hi) {
+    function inPlacePartition(arr, lo, hi) {
         let size = hi - lo + 1;
         let rand = Math.floor(Math.random()*100)%size;
         let pivot = arr[lo + rand];  // bug needed to add lo to rand so pivot is between lo and hi

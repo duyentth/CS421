@@ -66,11 +66,32 @@ red objects followed by the blue objects, followed by the green objects. Hint: u
 method swapElements to move the elements around in the List. To receive full credit,
 you must use positions for traversal, e.g., first, last, after, before, swapElements, etc.
 which is necessary to make it in-place.
+
+Algorithm sortRBG1(L) 
+Input: L is a list of objects colored either red, green or blue
+Output: L is a sorted list of objects with the order Red -> Blue -> green
+
+currentEle := L.first();
+count := 0
+
+while count <= L.size() do
+    If currentEle.value == 'red' then 
+        L.remove(currentEle);
+        L.insertFirst(currentEle);
+    Else If currentEle.value == 'green' then
+        L.remove(currentEle);
+        L.insertLast(currentEle);
+    count ++
+    currentEle = L.after(currentEle)
+return L
+
 A. Implement in JavaScript the Merge Sort pseudo code algorithm given in Lesson 9
 for sorting an array. Add this sorting algorithm to the sort algorithms from
 Assignments 7 and 8. Provided is the ArraySort-test.js file extended to run all of
 the sorts we have seen so far from Assignments 7, 8, and 9. Compare the number
 of key comparisons of each algorithm.
+
+
 B. Using one of your sort algorithms, implement in JavaScript your pseudo code
 solution to problem C 4.10 to find the winner of an election.
 Level 2.
