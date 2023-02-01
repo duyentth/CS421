@@ -39,6 +39,14 @@ keys    5   20  16  11  39  44  88  12  23  13  94
 
 R-2.22 What is the result of Exercise R-2.19 assuming collisions are handled by double
 hashing using a secondary hash function h’(k) = 7 – (k mod 7)?
+
+( double hashing : h1(k) = k mod 11, h2(k) = 7 -(k mod 7), => slot: ( h(1) + i*h2(k) ) mod 11, with i = 1, 2,3,..)
+
+hash table
+index   0   1   2   3   4   5   6   7   8   9   10
+keys    44  12  13  88  11  5   23  39  16  94  20
+
+
 Give the pseudo-code description for performing a removal from a hash table that uses
 linear probing to resolve collisions. Why is it necessary to use a special marker to
 represent deleted elements?
