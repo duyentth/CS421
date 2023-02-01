@@ -1,0 +1,54 @@
+Assignment 11
+R-2.19 Draw the 11-item hash table resulting from hashing the keys 12, 44, 13, 88, 23,
+94, 11, 39, 20, 16, and 5, using the hash function h(i) = (2i + 5) mod 11 and assuming
+collisions are handled by chaining.
+
+keys [12, 44, 13, 88, 23, 94, 11, 39, 20, 16, 5]
+
+hash function h(i) = (2i + 5) mod 11
+
+hash table 
+INDEX   0   1   2   3   4   5   6   7   8   9   10
+KEYS        20          16  44  94  12      13        
+                        |   |   |   |
+                        5   88  39  23
+                            |
+                            11  
+
+
+
+R-2.20 What is the result of the previous exercise, assuming collisions are handled by
+linear probing?
+
+hash table
+index   0   1   2   3   4   5   6   7   8   9   10
+keys    11  39  20  5   16  44  88  12  23  13  94
+
+
+R-2.21 Show the result of Exercise R-2.19, assuming collisions are handled by quadratic
+probing, up to the point where the method fails because no empty slot is found.
+
+(   if the slot hash h(i) = (2i + 5) mod 11  is full, then we try (h(i) + 1 * 1)) mod 11
+    if (h(i) + 1 * 1)) mod 11  is also full, then we try (h(i) + 2*2)) mod 11
+    ...
+    this process is repeated until an empty slot is found.  )
+
+hash table
+index   0   1   2   3   4   5   6   7   8   9   10
+keys    5   20  16  11  39  44  88  12  23  13  94
+
+R-2.22 What is the result of Exercise R-2.19 assuming collisions are handled by double
+hashing using a secondary hash function h’(k) = 7 – (k mod 7)?
+Give the pseudo-code description for performing a removal from a hash table that uses
+linear probing to resolve collisions. Why is it necessary to use a special marker to
+represent deleted elements?
+
+
+C-4.10 Suppose we are given an n-element sequence S such that each element in S
+represents a different vote in an election, where each vote is given as an integer
+representing the ID of the chosen candidate. Without making any assumptions about
+who is running or even how many candidates there are, design an efficient algorithm to
+see who wins the election S represents, assuming the candidate with the most votes
+wins. Handle the possibility of multiple winners and do this using a Dictionary.
+Today specify your solution using pseudo code (tomorrow we will implement in
+JavaScript after discussing today’s pseudo code solution).
