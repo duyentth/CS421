@@ -20,6 +20,7 @@ KEYS        20          16  44  94  12      13
 R-2.20 What is the result of the previous exercise, assuming collisions are handled by
 linear probing?
 
+h(i) = (2i + 5) mod 11
 hash table
 index   0   1   2   3   4   5   6   7   8   9   10
 keys    11  39  20  5   16  44  88  12  23  13  94
@@ -51,6 +52,33 @@ Give the pseudo-code description for performing a removal from a hash table that
 linear probing to resolve collisions. Why is it necessary to use a special marker to
 represent deleted elements?
 
+Algorithm removeItem(k)
+Input: hash table T with N elements and hash function h(k)
+h(k) = (2k + 5) mod 11
+hash table T
+index   0   1   2   3   4   5   6   7   8   9   10
+keys    11  39  20  5   16  44  88  12  23  13  94
+
+Output: return item removed or "NO_SUCH_KEY" if there is no such key k in the table
+
+item =  findItem(k)
+If item != NO_SUCH_KEY then 
+    replace item (k, o) with the special item AVAILABLE
+    return element o
+else
+    return NO_SUCH_KEY
+
+Algorithm findItem(k)
+i <- h(k)
+p <- 0
+while (p < N) do
+    x <- (i + p) mod N
+    item <- T[x]
+    if item = null then return NO_SUCH_KEY
+    else if item.key() = k then return item
+    else 
+        p <- p + 1
+return NO_SUCH_KEY
 
 C-4.10 Suppose we are given an n-element sequence S such that each element in S
 represents a different vote in an election, where each vote is given as an integer
