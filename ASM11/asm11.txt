@@ -8,8 +8,8 @@ keys [12, 44, 13, 88, 23, 94, 11, 39, 20, 16, 5]
 hash function h(i) = (2i + 5) mod 11
 
 hash table 
- INDEX(h(k))   0   1   2   3   4   5   6   7   8   9   10
-KEYS        20          16  44  94  12      13        
+INDEX   0   1   2   3   4   5   6   7   8   9   10//h(i)
+KEYS        20          16  44  94  12      13        //i
                         |   |   |   |
                         5   88  39  23
                             |
@@ -61,7 +61,7 @@ keys    11  39  20  5   16  44  88  12  23  13  94
 
 Output: return item removed or "NO_SUCH_KEY" if there is no such key k in the table
 
-item =  findItem(k)
+item =  findItem(key)
 If item != NO_SUCH_KEY then 
     replace item (k, o) with the special item AVAILABLE
     return element o
@@ -69,16 +69,14 @@ else
     return NO_SUCH_KEY
 
 Algorithm findItem(k)
-i <- h(k)
-p <- 0//step to go next cell of table
-while (p < N) do
-    x <- (i + p) mod N
-    item <- T[x]
-    if item = null then return NO_SUCH_KEY
-    else if item.key() = k then return item
+step = 0, index = base = h(k) = k mod N
+while(step < N)
+    if T[index] == empty then return "NO_SUCH_KEY"
+    else if T[index] == k then return index //found at index
     else 
-        p <- p + 1
-return NO_SUCH_KEY
+        step ++
+        index = (base + step*1) mod N //go to the next index in hash table
+return "NO_SUCH_KEY"
 
 C-4.10 Suppose we are given an n-element sequence S such that each element in S
 represents a different vote in an election, where each vote is given as an integer
