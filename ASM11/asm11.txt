@@ -49,8 +49,8 @@ keys    44  12  13  88  11  5   23  39  16  94  20
 
 
 Give the pseudo-code description for performing a removal from a hash table that uses
-linear probing to resolve collisions. Why is it necessary to use a special marker to
-represent deleted elements?
+linear probing to resolve collisions. 
+
 
 Algorithm removeItem(k)
 Input: hash table T with N elements and hash function h(k)
@@ -63,7 +63,7 @@ Output: return item removed or "NO_SUCH_KEY" if there is no such key k in the ta
 
 item =  findItem(key)
 If item != NO_SUCH_KEY then 
-    replace item (k, o) with the special item AVAILABLE
+    replace item (k, o) with the special item AVAILABLE/DELETED
     return element o
 else
     return NO_SUCH_KEY
@@ -77,6 +77,16 @@ while(step < N)
         step ++
         index = (base + step*1) mod N //go to the next index in hash table
 return "NO_SUCH_KEY"
+
+
+
+Why is it necessary to use a special marker to
+represent deleted elements?
+If we just empty the slot without special marker after deleting, it will hinder searches later. 
+The search process must still pass through the newly emptied slot to reach records whose probe sequence passed through this slot. 
+Thus, the delete process cannot simply mark the slot as empty, because this will isolate records further down the probe sequence.
+
+
 
 C-4.10 Suppose we are given an n-element sequence S such that each element in S
 represents a different vote in an election, where each vote is given as an integer
