@@ -8,7 +8,7 @@ keys [12, 44, 13, 88, 23, 94, 11, 39, 20, 16, 5]
 hash function h(i) = (2i + 5) mod 11
 
 hash table 
-INDEX   0   1   2   3   4   5   6   7   8   9   10
+ INDEX(h(k))   0   1   2   3   4   5   6   7   8   9   10
 KEYS        20          16  44  94  12      13        
                         |   |   |   |
                         5   88  39  23
@@ -70,7 +70,7 @@ else
 
 Algorithm findItem(k)
 i <- h(k)
-p <- 0
+p <- 0//step to go next cell of table
 while (p < N) do
     x <- (i + p) mod N
     item <- T[x]
