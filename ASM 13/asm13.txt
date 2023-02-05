@@ -10,8 +10,8 @@ tree? Justify your answer.
                                     /\
     
     This is a multi-way search tree because:
-    - Each internal node has at least 2 children, and the leaf store no items and serve as placeholders.
-    - Each node have the number of children one more than the number of keys.
+    - Each internal node has at least 2 children, and the leaf stores no items and serve as placeholders.
+    - Each node has the number of children one more than the number of keys.
     - All the keys (2 6 8) in child node v1 are less than the parent key k1(11)
     - All the keys in child node v2 (15) are greater than the key k1 (11) and less than the key k2 (24) in parent node (11 24)
     - All the keys in child node v3(27 32) are greater than the key k2 (24) in the parent node(11 24)
