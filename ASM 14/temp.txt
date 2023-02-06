@@ -3,7 +3,17 @@ R-3.11 Consider the following sequence of keys:
 (5, 16, 22, 45, 2, 10, 18, 30, 50, 12, 1, 7, 55)
 Consider the insertion of items with this set of keys, in the order given, into:
 a. an initially empty (2,4) tree T’.
+
+             (16)
+          /        \
+        (5 )        (22 45)
+      /    \       /  |    \   
+(1 2)  (7 10 12) (18)  (30)  (50 55)
+
 b. an initially empty red-black tree T’’.
+
+
+
 Draw T’ and T’’ after each insertion.
 
 
@@ -12,6 +22,10 @@ R-3.14 For each of the following statements about red-black trees, determine whe
 is true or false. If you think if it is true, provide a justification. If you think it is false, give a
 counterexample.
 a. a subtree of a red-black tree is itself a red-black tree.
+False
+Counterexample: There is a Red-Black Tree with the root is Black and left child and right child both are red. 
+Therefore there are 2 left and right subtrees with their roots are red, those subtrees are not the Red-Black Tree becaue the root of Red-Black Tree is always black.
+
 b. the sibling of an external node is either external or it is red.
 c. given a red-black tree T, there is an unique (2,4) tree T’ associated with T.
 d. given a (2,4) tree T, there is an unique red-black tree T’ associated with T.
