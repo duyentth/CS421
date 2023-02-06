@@ -1,0 +1,46 @@
+Assignment 15
+Design a pseudo code algorithm isValidAVL(T) that decides whether or not a binary tree
+is a valid AVL tree. For this problem, we define valid to mean that the height of the left
+and right sub-trees of every node do not differ by more than one.
+
+Algorithm isValidAVL(T)
+Input: T is binary search tree
+Output: true if the tree T is AVL tree, otherwise return false
+
+if T.isEmpty() then return false
+
+root := T.root()
+return isvalidAVLHelper(root)
+
+Algorithm isValidAVLHelper(root)
+
+//base case
+if(root == null) then return true
+
+//find the height of left and right subtrees
+leftHeight := height(root.left)
+rightHeight := height(root.right)
+
+//allowed values for (leftHeight - rightHeight) are 1, -1, 0
+if( Math.abs(leftHeight - rightHeight) <= 1 and isValidAVLHelper(root.left) and isValidAVLHelper(root.right)) then return true
+
+return false
+
+Algorithm height(node)
+if node == null then return 0
+return 1 + Max(height(node.left), height(node.right));
+
+What is the time complexity of your algorithm?
+
+Time complexity is O(n^2) in the case of T is full binary tree because for each node make two recursion call,
+one for left subtree and the other for the right subtree.
+
+Note: this algorithm can be optimized by calculating the height in the same the recursion rather than calling the height() function separately. Time compexity will be O(n).
+(look at the js file)
+
+
+C-3.10 Let D be an ordered dictionary with n items implemented by means of an AVL
+tree (or a Red-Black tree). Show how to implement the following operation on D in time
+O(log n + s), where s is the size of the iterator returned:
+FindAllInRange(k1, k2):
+Return an iterator of all the elements in D with key k such that k1 < k < k2.
