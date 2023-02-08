@@ -34,8 +34,8 @@ Algorithm sumHelper(T, p)
 
 
 //Exercise 2
-//Define, in pseudo-code, an algorithm to calculate the height of a tree. Hint: it needs to
-//be recursive.
+//Define, in pseudo-code, an algorithm to calculate the height of a tree. 
+//Hint: it needs to be recursive.
 
 Algorithm height(T)
     return heightHelper(T, T.root())
