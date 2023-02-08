@@ -19,11 +19,11 @@ tree? Justify your answer.
 2. Consider the following sequence of keys:
 (5, 16, 22, 45, 2, 10, 18, 30, 50, 12, 1, 25, 7)
 Insert items with this set of keys, in the order given, into an empty (2,4)-tree.
-
-               ( 5       16      22)
-            /       |         |       \
-        (1  2)   (7 10 12)  (18)      (25 30 45)
-
+                       (16)
+                    /        \
+                ( 5 )         (22 45)
+               /     \       /   |    \
+           (1 2)(7 10 12) (18) (25 30) (50)
 
 
 R-3.10 A certain Professor Amongus claims that a (2,4) tree storing a set of items will
