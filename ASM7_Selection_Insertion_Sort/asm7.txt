@@ -48,4 +48,17 @@ conclusion about running times?
 Level 2:
 2. Use one of these sorts from 1 above to implement in JavaScript another version of
 isPermutation(A,B). First start with the pseudo-code, then translate into JavaScript.
-Submit both the pseudo-code and the JavaScript program file with test cases. 
+Submit both the pseudo-code and the JavaScript program file with test cases.
+
+Algorithm isPermutation(A, B)
+Input: A is a sequence contains n elements
+       B is a sequence contains m elements
+Output: return true if A and B is permutation, otherwise return false
+
+If n != m then return false
+heapSort(A)
+heapSort(B)
+For i=0 to N-1 do
+    If(A[i] != B[i]) return false
+
+return true

@@ -13,10 +13,12 @@ Algorithm heightHelper(T, p)
     return MAX(lheight, rheight) + 1
 
 
-(b) Using the HW05-Tree.js, implement your algorithm in a JavaScript function Height(T).
+(b) Using the HW05-Tree.js,
+ implement your algorithm in a JavaScript function Height(T).
 
 done implementation
 
 (c) Implement your algorithm using the EulerTour template class provided in HW05-
 Tree.js, i.e., create a subclass of EulerTour with a method that calculates the height.
+
 done implementation
