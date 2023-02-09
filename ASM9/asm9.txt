@@ -76,9 +76,11 @@ count := 0
 
 while count <= L.size() do
     If currentEle.value == 'red' then 
+        temp := currentEle
         L.remove(currentEle);
-        L.insertFirst(currentEle);
+        L.insertFirst(temp);
     Else If currentEle.value == 'green' then
+        temp := currentEle
         L.remove(currentEle);
         L.insertLast(currentEle);
     count ++
