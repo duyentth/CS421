@@ -96,7 +96,7 @@ Algorithm DFS(v, flag, component)
     component.push(v)
     For each adjacent vertex u of v
         if ( flag[u] === -1) then
-            DFS(u, flag)
+            DFS(u, flag, component)
 
 
 
