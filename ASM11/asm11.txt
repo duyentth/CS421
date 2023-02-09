@@ -69,13 +69,13 @@ else
     return NO_SUCH_KEY
 
 Algorithm findItem(k)
-step = 0, index = base = h(k) = k mod N
+position = 0, index = base = h(k) = k mod N
 while(step < N)
     if T[index] == empty then return "NO_SUCH_KEY"
     else if T[index] == k then return index //found at index
     else 
         step ++
-        index = (base + step*1) mod N //go to the next index in hash table
+        index = (base + position) mod N //go to the next index in hash table
 return "NO_SUCH_KEY"
 
 

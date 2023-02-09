@@ -49,18 +49,16 @@ Algorithm FindAllInRange(k1, k2)
 Input: Ordered Dictionary D has n elements//pretend D is in asc order
         A range (k1, k2)
 Output: sub ordered Dictionary E which has s elements in the range (k1, k2)
+root = findRoot(D);
+return findAllInRangeHekper(root, low, high)
+Algorithm findAllInRange(root, low, high):
+    result = []
+    if root is not None:
+        if low < root.key:
+            result = result + findAllInRange(root.left, low, high)
+        if low < root.key and root.key < high:
+            result.append(root.value)
+        if root.key < high:
+            result = result + findAllInRange(root.right, low, high)
+    return result
 
-//find the start index which is greater than or equal k1
-start: binarySearch( k,k1, k2 )
-end: binarySearch(k, k1, k2 )
-For i = start to end do
-    E.push([ k[i], D[k[i]] ])
-return E
-
-Algorithm binarySearch( k, k1, k2)
- while (k1 < k2) do
-    mid: Math.floor( (k1 + k2)/ 2)
-    if( k < mid) then k2 = mid
-    else if (k > mid) then k1 = mid + 1
-    if k = mid return k
-return -1//not found
