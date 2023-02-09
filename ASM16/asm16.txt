@@ -1,0 +1,116 @@
+Assignment 16
+The following are to be written up and turned in separately from the rest of the
+homework.
+1. (a) Design a pseudo code algorithm, isValidRBTree(T), using the EulerTour
+template, to determine whether or not a red-black tree is properly formed. That is,
+are there two consecutive red nodes and are the black heights of both children of
+every node the same.
+
+
+Algorithm isValidRBTree(T)
+If T.isEmpty() then return false
+If T.root().color is red then return false
+If checkBlackDepthProperty(T.root) == -1 return false//check black depth property
+return isValidRBTreeHelper(T.root)
+
+Algorithm isValidRBTreeHelper(node)
+
+If node.color is red and node.left and node.right then
+    If node.leftChild.color is red or node.rightChild is red then return false
+leftValid := false, rightValid := false
+If node.left then leftValid = isValidRBTreeHelper(node.left);
+If node.rihgt then rightValid = isValidRBTreeHelper(node.right);
+return leftValid && rightValid;    
+
+Algorithm checkBlackDepthProperty(node)
+If !node then return 0;
+leftBlackHeight = checkBlackDepthProperty(node.leftChild)
+rightBlackHeight = checkBlackDepthProperty(node.rightChild)
+If (leftBlackHeight == -1  or rightBlackHeight == -1 or leftBlackHeight != rightBlackHeight) then return -1
+If (node.color is black) then return leftBlackHeight + 1
+else return leftBlackHeight;
+
+
+(b) Implement your function in JavaScript using the EulerTour template.
+
+
+
+
+
+2. Using the DFS Template Method algorithm given in the lecture notes, give a
+pseudo code algorithm, isConnected(G), to determine true or false, whether or not
+a graph G is connected, i.e., define isConnected and override the appropriate hook
+methods so this algorithm determines connectivity of a graph G.
+
+Algorithm isConnected(G)
+Input: The Graph G has N vertices//directed Graph
+OutPut: True if the Graph G is connected, otherwise return false
+
+flag:= []
+For u in a set of  N vertices do //For all vertices u in G do
+    flag[u] = -1 //make all vertices unvisited
+    DFS(u, flag)
+If any unvisited vertex is still remaining then return false
+return true
+
+Algorithm  DFS(u, flag)
+    flag[u] = 1 //mark u visited
+    //For all vertex v, if it is adjacent with u do
+    For v in M is set of vertices that are adjacent with u do
+        if (flag[v] == -1) then //v is not visited
+            DFS(v, flag) 
+
+
+3. Using the DFS Template Method algorithm given in the lecture notes, give a
+pseudo code algorithm, hasCycle(G), that determines true or false, whether or not
+a graph G has a cycle.
+
+
+
+
+4. Using the DFS Template Method algorithm given in the lecture notes, define a
+pseudo code algorithm, connectedComponents(G), that computes the connected
+components of a graph G. Your method should return a sequence of vertices, 1
+representative from each connected component.
+
+Algorithm connectedComponents(G)
+Input Graph G has N vertices
+Output a Sequence of vertices, 1 representative from each connected component.
+
+S :=[] a return Sequence of all connected components from graph G
+flag:= []
+For each vertex v of graph G 
+    flag[v] = -1
+    
+For v = 0 to N - 1 do    
+    component := []//contains all vertices of a component
+    if(flag[v] ===  1) then 
+        DFS(v, flag, component)
+    end if
+    S.push(component)//push each component into Sequence S
+return S
+
+
+Algorithm DFS(v, flag, component)
+    flag[v] = 1
+    component.push(v)
+    For each adjacent vertex u of v
+        if ( flag[u] === -1) then
+            DFS(u, flag)
+
+
+
+
+6. a. Modify the breadth-first search algorithm so it can be used as a Template Method.
+ b. Give a pseudo code algorithm, findPath(G, u, v) that finds a path between u and v.
+You will need to override the appropriate methods so that given two vertices u and
+v of graph G, your BFS finds a path in G between them, or report that no such path
+exists. Note that this path will be a path with the minimum number of edges.
+ c. Can the template version of DFS be used to find the path between two vertices with
+the minimum number of edges? Briefly explain why or why not.
+7. Based on either the DFS or the BFS template method algorithms, write an algorithm,
+labelComponents(G), that labels each connected component with a different
+number, that is, each vertex in a component would be labeled with the same
+number. For example, each node in the first connected component would be
+labeled with a 0, each node in the second connected component would be labeled
+with a 1, etc. 

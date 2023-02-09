@@ -44,3 +44,23 @@ tree (or a Red-Black tree). Show how to implement the following operation on D i
 O(log n + s), where s is the size of the iterator returned:
 FindAllInRange(k1, k2):
 Return an iterator of all the elements in D with key k such that k1 < k < k2.
+
+Algorithm FindAllInRange(k1, k2)
+Input: Ordered Dictionary D has n elements//pretend D is in asc order
+        A range (k1, k2)
+Output: sub ordered Dictionary E which has s elements in the range (k1, k2)
+
+//find the start index which is greater than or equal k1
+start: binarySearch( k,k1, k2 )
+end: binarySearch(k, k1, k2 )
+For i = start to end do
+    E.push([ k[i], D[k[i]] ])
+return E
+
+Algorithm binarySearch( k, k1, k2)
+ while (k1 < k2) do
+    mid: Math.floor( (k1 + k2)/ 2)
+    if( k < mid) then k2 = mid
+    else if (k > mid) then k1 = mid + 1
+    if k = mid return k
+return -1//not found
