@@ -65,6 +65,30 @@ Algorithm  DFS(u, flag)
 pseudo code algorithm, hasCycle(G), that determines true or false, whether or not
 a graph G has a cycle.
 
+Algorithm hasCycle(G)
+Input: Graph G has N vertices
+Output: return true if there is a cycle in G, otherwise return false
+
+flag: []
+
+For each vertex u in N vertices do
+    flag[u] = -1//mark vertex u unvisited
+For each vertex u in N vertices do
+    if flag[u] === -1 then
+        stack: []
+        flag[u] = 1
+        stack.push(u);
+    return    DFS(u, flag, stack)
+return false
+
+Algorithm DFS(u, flag, stack)
+    For each vertex v adjacent  with u do
+        if flag[v] === 1 and v is in stack then
+            return true
+        if flag[v] === -1 then 
+            flag[v] = 1
+            stack.push(v)
+            DFS(v, flag, stack)
 
 
 
@@ -88,6 +112,7 @@ For v = 0 to N - 1 do
         DFS(v, flag, component)
     end if
     S.push(component)//push each component into Sequence S
+   
 return S
 
 
@@ -106,6 +131,8 @@ Algorithm DFS(v, flag, component)
 You will need to override the appropriate methods so that given two vertices u and
 v of graph G, your BFS finds a path in G between them, or report that no such path
 exists. Note that this path will be a path with the minimum number of edges.
+
+
  c. Can the template version of DFS be used to find the path between two vertices with
 the minimum number of edges? Briefly explain why or why not.
 7. Based on either the DFS or the BFS template method algorithms, write an algorithm,
