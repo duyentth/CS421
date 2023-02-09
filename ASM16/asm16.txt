@@ -84,7 +84,7 @@ For each vertex v of graph G
     
 For v = 0 to N - 1 do    
     component := []//contains all vertices of a component
-    if(flag[v] ===  1) then 
+    if(flag[v] === - 1) then 
         DFS(v, flag, component)
     end if
     S.push(component)//push each component into Sequence S
